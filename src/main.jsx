@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 //--
-import { TodoApp } from "./07-useReducer/TodoApp";
+import { BrowserRouter } from "react-router-dom";
+//https://v5.reactrouter.com/web/guides/quick-start v6
+//--
+import { MainApp } from "./08-useContext/MainApp";
+//import { TodoApp } from "./07-useReducer/TodoApp";
 //import "./07-useReducer/intro-reducer";
 //import { MemoHook } from "./06-useMemo/MemoHook";
 //import { Memorize } from "./06-useMemo/Memorize";
@@ -14,10 +18,13 @@ import { TodoApp } from "./07-useReducer/TodoApp";
 //import { CounterApp } from "./01-useState/CounterApp";
 //import { CounterWithCustomHook } from "./01-useState/CounterWithCustomHook";
 //--
+
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <TodoApp />
-  </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <MainApp />
+    </React.StrictMode>
+  </BrowserRouter>
 );
