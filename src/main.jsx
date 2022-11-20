@@ -1,7 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 //--
-import { MemoHook } from "./06-useMemo/MemoHook";
+import { TodoApp } from "./07-useReducer/TodoApp";
+//import "./07-useReducer/intro-reducer";
+//import { MemoHook } from "./06-useMemo/MemoHook";
 //import { Memorize } from "./06-useMemo/Memorize";
 //import { Layout } from "./05-useLayoutEffect/Layout";
 //import { FocusScreen } from "./04-useRef/FocusScreen";
@@ -16,6 +18,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <MemoHook />
+    <TodoApp />
   </React.StrictMode>
 );
