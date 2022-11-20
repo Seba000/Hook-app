@@ -1,35 +1,36 @@
 import { useEffect, useReducer } from "react";
+import { useTodos } from "../hooks";
 import { TodoAdd } from "./TodoAdd";
 import { TodoList } from "./TodoList";
 import { todoReducer } from "./todoReducer";
-const initialState = [];
-const init = () => {
-  return JSON.parse(localStorage.getItem("todos")) || [];
-};
+//
+//
+//
 export const TodoApp = () => {
-  const [todos, dispatch] = useReducer(todoReducer, initialState, init);
-  useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }, [todos]);
-
-  //-
-  const handleNewTodo = (todo) => {
-    const action = {
-      type: "[TODO] Add Todo",
-      payload: todo,
-    };
-    dispatch(action);
-  };
-  //-
+  //
+  const {
+    todos,
+    handleDeleteTodo,
+    handleNewTodo,
+    handleToggleTodo,
+    todosCount,
+    pendingTodosCount,
+  } = useTodos();
+  //
   return (
     <>
       <h1>
-        ToDo app: 10, <small> pendientes: 2 </small>
+        ToDo's: {todosCount},<small> pendientes: {pendingTodosCount} </small>
       </h1>
       <hr />
       <div className="row">
         <div className="col-7">
-          <TodoList todos={todos} /> {/* todos list con el map */}
+          <TodoList
+            todos={todos}
+            onDeleteTodo={handleDeleteTodo}
+            onToggleTodo={handleToggleTodo}
+          />{" "}
+          {/* todos list con el map */}
         </div>
 
         <div className="col-5">
